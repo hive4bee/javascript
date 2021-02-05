@@ -1,0 +1,15 @@
+<!-- css선택자를 이용한 요소 노드 취득 -->
+<!DOCTYPE html>
+<html>
+    <body>
+        <ul>
+            <li class='apple'>Apple</li>
+            <li class='banana'>Banana</li>
+            <li class='orange'>Orange</li>
+        </ul>
+        <script>
+            const $elems=document.querySelectorAll('ul > li');
+            $elems.forEach(elem => {elem.style.color='blue';})
+        </script>
+    </body>
+</html>

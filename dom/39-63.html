@@ -1,0 +1,16 @@
+<!-- 지정한 위치에 노드 삽입 -->
+<!DOCTYPE html>
+<html>
+    <body>
+        <ul id='fruits'>
+            <li>Apple</li>
+            <li>Banana</li>
+        </ul>
+        <script>
+            const $fruits=document.getElementById('fruits');
+            const $li=document.createElement('li');
+            $li.appendChild(document.createTextNode('Orange'));
+            $fruits.insertBefore($li, $fruits.lastElementChild);
+        </script>
+    </body>
+</html>

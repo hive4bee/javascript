@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script>
+            const getGithubUsername=async id=>{
+                const res=await fetch(`https://api.github.com/users/${id}`);
+                const {name}=await res.json();
+                console.log(name);
+            }
+            getGithubUsername('ungmo2');
+        </script>
+    </body>
+</html>

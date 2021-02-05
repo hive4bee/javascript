@@ -1,0 +1,65 @@
+<!-- NodeList -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .red{color:red}
+            .blue{color:blue}
+            .green{color:green}
+        </style>
+    </head>
+    <body>
+        <ul id='fruits'>
+            <li class='red'>Apple</li>
+            <li class='red'>Banana</li>
+            <li class='red'>Orange</li>
+        </ul>
+        <script>
+            const $elems=document.querySelectorAll('.red');
+            
+            $elems.forEach(elem => elem.className='blue');
+            /**
+             * HTMLCollection객체의 부작용을 해결하기위해 getElementsByTagName, getElementsByClassName메서드 대신
+             * querySelectorAll 메서드를 사용하는 방법이 있다. querySelectorAll 메서드는 NodelList 객체를 반환하는데
+             * 이때 NodeList 객체는 실시간으로 노드 객체의 상태 변경을 반영하지 않는(non-live) 객체다.
+             * 
+             * querySelectorAll이 반환하는 NodeList 객체는 NodeList.prototype.forEach 메서드를 상속받아 사용할 수 있다.
+             * NodeList.prototype.forEach메서드는 Array.prototype.forEach메서드와 사용방법이 동일하다.
+             * NodeList.prototype은 forEach 외에도 item., entries, keys, values 메서드를 제공한다.
+             * NodeList객체는 대부분의 경우 노드 객체의 상태 변경을 실시간으로 반영하지 않고 과거의 정적 상태를 유지하는
+             * non-live객체로 동작한다.
+             * 
+             * 하지만 childNodes 프로퍼티가 반환하는 NodeList 객체는 HTMLCollection객체와 같이 실시간으로 노드 객체의 상태 변경을
+             * 반영하는 live객체로 동작하므로 주의가 필요하다.
+             * 
+             */
+            const $fruits=document.getElementById('fruits');
+            
+            const { childNodes } = $fruits;
+            console.log(childNodes instanceof NodeList);//true
+
+            console.log(childNodes);
+
+            for(let i=0;i<childNodes.length;i++){
+                $fruits.removeChild(childNodes[i]);
+            }
+            console.log(childNodes);//예상과 다르게 $fruits 요소의 모든 자식 노드가 삭제되지 않는다.
+            /**
+             * 이처럼 HTMLCollection이나 NodeList 객체는 예상과 다르게 동작할 때가 있어 다루기가 까다롭고 실수하기 쉽다.
+             * 따라서 노드 객체의 상태 변경과 상관없이 안전하게 DOM 컬렉션을 사용하려면 HTMLCollecition이나 NodeList 객체를
+             * 배열로 변환하여 사용하는 것을 권장한다. HTMLCollection과 NodeList 객체가 메서드를 제공하기는 하지만 배열의 고차 함수만큼
+             * 다양한 기능을 제공하지는 않는다. HTMLCollection이나 NodeList객체를 배열로 변환하면 배열의 유용한 고차 함수(forEach, map, filter, reduce 등)를 사용할 수 있다
+             * 
+             * HtmlCollection과 NodeList객체는 모두 유사 배열 객체이면서 이터러블이다. 따라서 스프레드 문법이나. Array.from메서드를 사용하여 간단히 배열로 변환할 수 있다.
+             */
+            // [...childNodes].forEach(childNode => {
+            //     $fruits.removeChild(childNode);
+            // })
+            // console.log(childNodes);
+            // Array.from(childNodes).forEach(childNode => {
+            //     $fruits.removeChild(childNode);
+            // });
+            // console.log(childNodes);
+        </script>
+    </body>
+</html>

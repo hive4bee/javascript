@@ -1,0 +1,23 @@
+<!-- 클래스 조작 -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .box{
+                width:100px;
+                height:100px;
+                background-color:antiquewhite;
+            }
+            .red{color:red}
+            .blue{color:blue}
+        </style>
+    </head>
+    <body>
+        <div class='box red'>Hello World</div>
+        <script>
+            const $box=document.querySelector('.box');
+            console.log($box.className);
+            $box.className=$box.className.replace('red','blue');
+        </script>
+    </body>
+</html>

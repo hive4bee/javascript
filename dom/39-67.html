@@ -1,0 +1,18 @@
+<!-- 노드 복사 -->
+<!DOCTYPE html>
+<html>
+    <body>
+        <ul id='fruits'>
+            <li>Apple</li>
+        </ul>
+        <script>
+            const $fruits=document.getElementById('fruits');
+            const $apple=$fruits.firstElementChild;
+            const $shallowClone=$apple.cloneNode();
+            $shallowClone.textContent='Banana';
+            $fruits.appendChild($shallowClone);
+            const $deepClone=$fruits.cloneNode(true);
+            $fruits.appendChild($deepClone);
+        </script>
+    </body>
+</html>

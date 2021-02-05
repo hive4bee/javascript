@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script>
+            const promiseGet=url=>{
+                return new Promise((resolve,reject)=>{
+                    const xhr=new XMLHttpRequest();
+                    xhr.open('GET',url);
+                    xhr.send();
+                    xhr.onload=()=>{
+                        if(xhr.status===200){
+                            resolve(JSON.parse(xhr.response));
+                        }else{
+                            reject(new Error(xhr.status));
+                        }
+                    }
+                })
+            }
+            const url='https://jsonplaceholder.typicode.com';
+            promiseGet(`${url}/posts/1`)
+                .then(({userId}) => {return promiseGet(`${url}/users/${userId}`)})
+                .then(userInfo => console.log(userInfo))
+                .catch(err=>console.log(err));
+            
+            (async () => {
+                const {userId} = await promiseGet(`${url}/posts/1`);
+                const userInfo=await promiseGet(`${url}/users/${userId}`);
+                console.log('async/await:',userInfo);
+            })();
+        </script>
+    </body>
+</html>

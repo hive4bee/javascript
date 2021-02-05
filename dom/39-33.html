@@ -1,0 +1,32 @@
+<!-- 형제 노드 탐색 -->
+<!DOCTYPE html>
+<html>
+    <body>
+        <ul id='fruits'>
+            <li class='apple'>Apple</li>
+            <li class='banana'>Banana</li>
+            <li class='orange'>Orange</li>
+        </ul>
+    </body>
+    <script>
+        const $fruits = document.getElementById('fruits');
+        
+        const { firstChild } =$fruits;
+        console.log("firstChild:",firstChild);//#text
+        
+        const { nextSibling } = firstChild;
+        console.log("nextSibling:",nextSibling);
+
+        const { previousSibling } = nextSibling;
+        console.log("previousSibling:",previousSibling);
+        
+        const { firstElementChild } = $fruits;
+        console.log("firstElementChild:", firstElementChild);
+
+        const { nextElementSibling } = firstElementChild;
+        console.log("nextElementSibling:", nextElementSibling);
+
+        const { previousElementSibling } = nextElementSibling;
+        console.log("previousElementSibling:", previousElementSibling);
+    </script>
+</html>

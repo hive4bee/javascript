@@ -1,0 +1,16 @@
+<!-- data 어트리뷰트와 dataset 프로퍼티 -->
+<!DOCTYPE html>
+<html>
+    <body>
+        <ul class='users'>
+            <li id='1' data-user-id='7621'>Lee</li>
+            <li id='2' data-user-id='9524'>Kim</li>
+        </ul>
+        <script>
+            const users=[...document.querySelector('.users').children];
+            const user = users.find(user => user.dataset.userId==='7621');
+            user.dataset.role='admin';
+            console.log(user.dataset);
+        </script>
+    </body>
+</html>

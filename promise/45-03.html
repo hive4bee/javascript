@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script>
+            const get=url=>{
+                const xhr=new XMLHttpRequest();
+                xhr.open('GET',url);
+                xhr.send();
+                xhr.onload=()=>{
+                    if(xhr.status===200){
+                        return JSON.parse(xhr.response);
+                    }
+                    console.error(`${xhr.status} ${xhr.statusText}`);
+                }
+            }
+            const response = get('https://jsonplaceholder.typicode.com/posts/1');
+            console.log(response);
+            /**
+             * get함수가 호출되면서 XMLHttpRequest객체를 생성하고, HTTP 요청을 초기화한 후, HTTP요청을 전송한다.
+             * 그리고 xhr.onload 이벤트 핸들러 프로퍼티에 이벤트 핸들러를 바인딩하고 종료한다. 이때 get함수에 명시적인
+             * 반환문이 없으므로 get함수는 undefined를 반환한다.
+             * 함수의 반환값은 명시적으로 호출한 다음에 캐치할 수 있으므로 onload이벤트 핸들러를 get함수가 호출할 수 있다면
+             * 이벤트 핸들러의 반환값을 get함수가 캐치하여 다시 반환할 수도 있겠지만 onload이벤트 핸들러는 get함수가 호출하지 않기 때문에
+             * 그럴 수도 없다. 따라서 onload이벤트 핸들러의 반환값을 캐치할 수 없다.
+             */
+        </script>
+    </body>
+</html>

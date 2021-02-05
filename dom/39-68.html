@@ -1,0 +1,15 @@
+<!-- 노드 교체 -->
+<!DOCTYPE html>
+<html>
+    <body>
+        <ul id='fruits'>
+            <li>Apple</li>
+        </ul>
+        <script>
+            const $fruits=document.getElementById('fruits');
+            const $newChild=document.createElement('li');
+            $newChild.textContent='Banana';
+            $fruits.replaceChild($newChild, $fruits.firstElementChild);
+        </script>
+    </body>
+</html>

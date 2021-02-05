@@ -1,0 +1,33 @@
+<!-- HTMLCollection NodeList -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .red{color:red}
+            .blue{color:blue}
+            .green{color:green}
+        </style>
+    </head>
+    <body>
+        <ul id='fruits'>
+            <li class='red'>Apple</li>
+            <li class='red'>Banana</li>
+            <li class='red'>Orange</li>
+        </ul>
+        <script>
+            const $elems=document.getElementsByClassName('red');
+            // console.log($elems);//3개
+            // for(let i=0; i<$elems.length;i++){
+            //     $elems[i].className='blue';
+            // }
+            // console.log($elems);//1개
+            // 예상과 다른 결과를 볼 수 있는데, 이는 HTMLCollection객체는 
+            // 실시간으로 노드 객체의 상태 변경을 반영하는 살아 있는(live) DOM 컬렉션 객체이기 때문이다.
+            // for(let j=$elems.length-1; j>=0; j--){
+            //     $elems[j].className='blue';
+            // }//해결책은 역순으로 순회하면 해결할 수 있다.
+            
+            [...$elems].forEach(elem => {elem.className='green';});
+        </script>
+    </body>
+</html>

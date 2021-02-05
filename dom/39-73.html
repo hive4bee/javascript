@@ -1,0 +1,14 @@
+<!-- HTML 어트리뷰트 조작 -->
+<!DOCTYPE html>
+<html>
+    <body>
+        <input id='user' type='text' value='ungmo2'>
+        <script>
+            const $input = document.getElementById('user');
+            if($input.hasAttribute('value')){
+                $input.removeAttribute('value');
+            }
+            console.log($input.hasAttribute('value'));
+        </script>
+    </body>
+</html>

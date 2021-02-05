@@ -1,0 +1,19 @@
+<!-- 요소 노드의 텍스트 조작 -->
+<!DOCTYPE html>
+<html>
+    <body>
+        <div id='foo'>Hello</div>
+        <script>
+            console.log(document.nodeValue);//null
+
+            const $foo = document.getElementById('foo');
+            console.log($foo.nodeValue);//null
+
+            const $textNode = $foo.firstChild;
+            console.log($textNode.nodeValue);
+
+            $textNode.nodeValue='World';
+            console.log($textNode.nodeValue);
+        </script>
+    </body>
+</html>

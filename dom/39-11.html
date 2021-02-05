@@ -1,0 +1,28 @@
+<!-- class를 이용한 요소 노드 취득 -->
+<!DOCTYPE html>
+<html>
+    <body>
+        <ul>
+            <li class='fruit apple'>Apple</li>
+            <li class='fruit banana'>Banana</li>
+            <li class='fruit orange'>Orange</li>
+        </ul>
+        <script>
+            const $elems=document.getElementsByClassName('fruit');
+            [...$elems].forEach(elem => {elem.style.color='red';});
+            const $apples = document.getElementsByClassName('fruit apple');
+            [...$apples].forEach(elem => {elem.style.color='blue';})
+
+            const testElems=document.getElementsByClassName('fruit');
+            for(let i=0; i<testElems.length;i++){
+                if(i===0){
+                    testElems[i].style.color='green';
+                }else if(i===1){
+                    testElems[i].style.color='gray';
+                }else{
+                    testElems[i].style.color='orange';
+                }
+            }
+        </script>
+    </body>
+</html>

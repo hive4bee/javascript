@@ -1,0 +1,14 @@
+<!-- 이벤트 핸들러 제거 -->
+<!DOCTYPE html>
+<html>
+    <body>
+        <button>Click me!</button>
+        <script>
+            const $button = document.querySelector('button');
+            const handleClick = () => console.log('button click');
+            $button.addEventListener('click', handleClick);
+            //$button.removeEventListener('click', handleClick, true);//addEventListener에 전달한 인수가 일치하지 않으면 제거되지 않음=fail
+            $button.removeEventListener('click',handleClick);//success
+        </script>
+    </body>
+</html>

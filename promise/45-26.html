@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script>
+            //Promise.resolve메서드는 인수로 전달받은 값을 resolve하는 프로미스를 생성한다.
+            let resolvedPromise=Promise.resolve([1,2,3]);
+            resolvedPromise.then(console.log);
+            resolvedPromise=new Promise(resolve => resolve([1,2,3]));
+            resolvedPromise.then(console.log);
+            let rejectedPromise=Promise.reject(new Error('Error'));
+            rejectedPromise.catch(console.error);
+            
+        </script>
+    </body>
+</html>

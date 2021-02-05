@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script>
+            Promise.allSettled([
+                new Promise(resolve=>setTimeout(()=>resolve(1),2000)),
+                new Promise((_, reject)=>setTimeout(()=>reject(new Error('Error!')),1000))
+            ]).then(console.log);
+            /**
+             * allSettled는 all처럼 모두 fulfilled상태가 아니어도 된다.
+             * 프로미스가 fulfilled상태인 경우 비동기 처리 상태를 나타내는 status 프로퍼티와 
+             * 처리 결과를 나타내는 value 프로퍼티를 갖는다.
+             * 
+             * 프로미스가 rejected상태인 경우 비동기 처리 상태를 나타내는 status 프로퍼티와
+             * 에러를 나타내는 reason 프로퍼티를 갖는다.
+             */
+        </script>
+    </body>
+</html>

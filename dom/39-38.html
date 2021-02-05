@@ -1,0 +1,12 @@
+<!-- 요소 노드의 텍스트 조작 -->
+<!DOCTYPE html>
+<html>
+    <body>
+        <div id='foo'>Hello <span>world!</span></div>
+        <script>
+            console.log(document.getElementById('foo').nodeValue);
+            console.log(document.getElementById('foo').firstChild.nodeValue);
+            console.log(document.getElementById('foo').lastChild.firstChild.nodeValue);
+        </script>
+    </body>
+</html>

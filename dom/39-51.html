@@ -1,0 +1,20 @@
+<!-- 노드 생성과 추가 -->
+<!DOCTYPE html>
+<html>
+    <body>
+        <ul id='fruits'>
+            <li>Apple</li>
+        </ul>
+        <script>
+            const $fruits=document.getElementById('fruits');
+            const $li=document.createElement('li');
+            const textNode=document.createTextNode('Banana');
+            $li.appendChild(textNode);
+            $fruits.appendChild($li);
+            /**
+             * createElement메서드로 생성한 요소 노드는 아무런 자식 노드를 가지고 있지 않다.
+             * 따라서 요소 노드의 자식 노드인 텍스트 노드도 없는 상태다.
+             */
+        </script>
+    </body>
+</html>

@@ -1,0 +1,30 @@
+<!-- 노드 정보 취득 -->
+<!DOCTYPE html>
+<html>
+    <body>
+        <div id='foo'>Hello</div>
+        <script>
+            console.log(document.nodeType);//9
+            console.log(document.nodeName);//#document
+
+            const $foo = document.getElementById('foo');
+            console.log($foo.nodeType);//1
+            console.log($foo.nodeName);//DIV
+
+            const $textNode = $foo.firstChild;
+            console.log($textNode.nodeType);//3
+            console.log($textNode.nodeName);//#text
+            /**
+             * nodeType
+             *  -ELEMENT_NODE: 1
+             *  -TEXT_NODE: 3
+             *  -DOCUMENT_NODE: 9
+             * 
+             * nodeName
+             *  -요소 노드: 대문자 문자열로 태그 이름("UL","LI" 등)을 반환
+             *  -텍스트 노드: 문자열 "#text"를 반환
+             *  -문서 노드: 문자열 "#document"를 반환
+             */
+        </script>
+    </body>
+</html>

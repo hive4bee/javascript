@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script>
+            const request={
+                get(url){
+                    return fetch(url);
+                },
+                post(url, payload){
+                    return fetch(url, {
+                        method:'POST',
+                        headers:{'content-Type':'application/json'},
+                        body:JSON.stringify(payload)
+                    });
+                },
+                patch(url,payload){
+                    return fetch(url,{
+                        method:'PATCH',
+                        header:{'content-Type':'application/json'},
+                        body:JSON.stringify(payload)
+                    });
+                },
+                delete(url){
+                    return fetch(url, {method:'DELETE'});
+                }
+            }
+            const url='https://jsonplaceholder.typicode.com';
+            request.get(`${url}/todos/1`)
+                .then(response=>{
+                    console.log('response:',response);
+                    return response.json();
+                })
+                .then(todo=>console.log(todo))
+                .catch(err=>console.error(err));
+            
+            request.post(`${url}/todos`,{
+                userId:1,
+                title:'JavaScript',
+                completed:false
+            }).then(response=>response.json())
+              .then(todo=>console.log(todo))
+              .catch(err=>console.error(err));
+            
+            request.patch(`${url}/todos/1`, {
+                completed:true
+            }).then(response=>response.json())
+              .then(todo=>console.log(todo))
+              .catch(err=>console.error(err));
+            
+            request.delete(`${url}/todos/1`)
+                .then(response=>response.json())
+                .then(todo=>console.log(todo))
+                .catch(err=>console.error(err));
+        </script>
+    </body>
+</html>

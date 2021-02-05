@@ -1,0 +1,18 @@
+<!-- 태그 이름을 이용한 요소 노드 취득 -->
+<!DOCTYPE html>
+<html>
+    <body>
+        <ul>
+            <li id='apple'>Apple</li>
+            <li id='banana'>Banana</li>
+            <li id='orange'>Orange</li>
+        </ul>
+        <script>
+            const $elems=document.getElementsByTagName('li');
+            [...$elems].forEach(elem => {elem.style.color='blue';});
+
+            const $all = document.getElementsByTagName('*');
+            console.log('$all:',$all);
+        </script>
+    </body>
+</html>

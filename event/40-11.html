@@ -1,0 +1,16 @@
+<!-- addEventListener 메서드 방식 -->
+<!DOCTYPE html>
+<html>
+    <body>
+        <button>Click me</button>
+        <script>
+            const $button = document.querySelector('button');
+            $button.addEventListener('click', function(){
+                console.log('[1]button click');
+            })
+            $button.addEventListener('click', function(){
+                console.log('[2]button click');
+            })
+        </script>
+    </body>
+</html>

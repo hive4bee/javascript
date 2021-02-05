@@ -1,0 +1,15 @@
+<!-- 자식 노드 존재 확인 -->
+<!DOCTYPE html>
+<html>
+    <body>
+        <ul id='fruits'>
+            <li></li>
+        </ul>
+        <script>
+            const $fruits=document.getElementById('fruits');
+            console.log($fruits.hasChildNodes());//텍스트 노드가 포함되기 때문에 true가 반환됨
+            console.log($fruits.childElementCount);
+            console.log($fruits.children.length);
+        </script>
+    </body>
+</html>

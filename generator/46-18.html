@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h2>0</h2>
+        <script>
+            async function foo(){
+                const a = await new Promise(resolve => setTimeout(() => resolve(1), 3000));
+                const b = await new Promise(resolve => setTimeout(() => resolve(2), 2000));
+                const c = await new Promise(resolve => setTimeout(() => resolve(3), 1000));
+                console.log([a,b,c]);
+            }
+            foo();
+
+            async function bar(){
+                const res = await Promise.all([
+                    new Promise(resolve => setTimeout(() => resolve(1), 3000)),
+                    new Promise(resolve => setTimeout(() => resolve(2), 2000)),
+                    new Promise(resolve => setTimeout(() => resolve(3), 1000))
+                ])
+                console.log(res);
+            }
+            bar();
+            let num=0;
+            // setInterval(function(){
+            //     document.querySelector('h2').textContent=num++;
+            // },1000)
+        </script>
+    </body>
+</html>

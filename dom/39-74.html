@@ -1,0 +1,31 @@
+<!-- HTML 어트리뷰트, DOM 프로퍼티 -->
+<!DOCTYPE html>
+<html>
+    <body>
+        <input id='user' type='text' value='ungmo2'>
+        <script>
+            const $input = document.getElementById('user');
+            $input.value='foo';
+            console.log($input.value);
+            /**
+             * dom 프로퍼티는 setter와 getter 모두 존재하는 접근자 프로퍼티이다. 
+             * 따라서 dom 프로퍼티는 참조와 변경이 가능하다.
+             * 
+             * 이처럼 HTML 어트리뷰트는 다음과 같이 DOM에서 중복 관리되고 있는 것처럼 보인다.
+             * 1.요소 노드의 attributes 프로퍼티에서 관리하는 어트리뷰트 노드
+             * 2.HTML 어트리뷰트에 대응하는 요소 노드의 프로퍼티(dom 프로퍼티)
+             * 
+             * 그렇다면 HTML 어트리뷰트는 dom에서 중복 관리되는 걸까? 그렇지 않다. 
+             * 우선 HTNML 어트리뷰트의 역할을 살펴보자.
+             * HTML 어트리뷰트의 역할은 HTML 요소의 초기 상태를 지정하는 것이다. 즉, HTML 어트리뷰트 값은
+             * HTML 요소의 초기 상태를 의미하며 이는 변하지 않는다.
+             *
+             * 예를 들어, <input id='user' type='text' value='ungmo2'> 요소의 value어트리뷰트는 input요소가 렌더링될 때 입력 필드에 표시할 초기값을 지정한다.
+             * 즉, input요소가 렌더링되면 입력 필드에 초기값으로 지정한 value 어트리뷰트 값 'ungmo2'가 표시된다.
+             * 이때 input요소의 value 어트리뷰트는 어트리뷰트 노드로 변환되어 요소 노드의 attributes 프로퍼티에 저장된다. 이와는 별도로 value 어트리뷰트의 값은
+             * 요소 노드의 value프로퍼티에 할당된다. 따라서 input 요소의 요소 노드가 생성되어 첫 렌더링이 끝난 시점까지 어트리뷰트 노드의 어트리뷰트 값과 
+             * 요소 노드의 value 프로퍼티에 할당된 값은 HTML 어트리뷰트 값과 동일하다.
+             */
+        </script>
+    </body>
+</html>

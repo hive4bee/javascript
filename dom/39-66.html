@@ -1,0 +1,17 @@
+<!-- 노드 이동 -->
+<!DOCTYPE html>
+<html>
+    <body>
+        <ul id='fruits'>
+            <li>Apple</li>
+            <li>Banana</li>
+            <li>Orange</li>
+        </ul>
+        <script>
+            const $fruits=document.getElementById('fruits');
+            const [$apple, $banana]=$fruits.children;
+            $fruits.appendChild($apple);
+            $fruits.insertBefore($banana, $fruits.lastElementChild);
+        </script>
+    </body>
+</html>

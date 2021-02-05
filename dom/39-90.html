@@ -1,0 +1,42 @@
+<!-- 클랙스 조작 -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .box{
+                width:100px;
+                height:100px;
+                background-color:antiquewhite;
+            }
+            .red{color:red}
+            .blue{color:blue}
+        </style>
+    </head>
+    <body>
+        <div class='box red'>Hello world</div>
+        <script>
+            const $box=document.querySelector('.box');
+            console.log($box.classList);
+            $box.classList.replace('red','blue');
+            console.log('/////////////////////////////');
+            // add(...className);
+            $box.classList.add('foo'); // class: box red foo
+            $box.classList.add('bar','baz') // class: box red foo bar baz
+            // remove(...className);
+            $box.classList.remove('foo'); // class: box red bar baz
+            $box.classList.remove('bar', 'baz'); // class: box red
+            $box.classList.remove('x'); // class: box red
+            //item(index);
+            $box.classList.item(0); // box
+            $box.classList.item(1); // red
+            //contains(className);
+            $box.classList.contains('box');//true
+            $box.classList.contains('blue');//false
+            //replace(oldClassName, newClassName);
+            $box.classList.replace('red','blue');//class: box blue
+            //toggle(className[, force]);
+            $box.classList.toggle('foo');//class: box blue foo
+            $box.classList.toggle('foo');//class: box blue
+        </script>
+    </body>
+</html>
